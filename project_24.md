@@ -30,7 +30,7 @@ helm repo update
 ![helm install](./images/2.png)
 
 ```bash
-# Install the chart
+# Install Jenkins chart
 helm install [RELEASE_NAME] jenkins/jenkins --kubeconfig [kubeconfig file]
 ```
 ![helm install](./images/3.png)
@@ -82,3 +82,26 @@ Import the kubeconfig into the default kubeconfig file.
 
 ![helm install](./images/7.png)
 
+Test that it is working without specifying the --kubeconfig flag
+
+```bash
+# Display pods
+k get pod
+
+# Display the current context
+k config current-context
+```
+
+![helm install](./images/8.png)
+
+Get the password to the admin user using the instructions displayed when jenkins chart was installed See snapshoot above - *Install Jenkins chart*
+
+```bash
+# Get password
+kubectl exec --namespace default -it svc/jenkins-server -c jenkins -- /bin/cat /run/secrets/additional/chart-admin-password && echo
+
+#  Get the Jenkins URL 
+kubectl --namespace default port-forward svc/jenkins-server 8080:8080
+```
+![helm install](./images/10.png)
+![helm install](./images/9.png)
