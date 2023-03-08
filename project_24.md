@@ -133,7 +133,7 @@ helm repo update
 helm install prome prometheus-community/prometheus
 ```
 
-> Create NodePort Service object and expose port 9090
+> *Create NodePort Service object and expose pod port 9090 on nodeport port 30005*
 
 ![helm install](./images/12.png)
 
@@ -151,7 +151,15 @@ helm repo update
 helm install mygrafana grafana/grafana
 
 ```
+
+> *Create NodePort Service object and expose pod port 3000 on nodeport port 30006*
 ![helm install](./images/15.png)
 
 View in the browser
 ![helm install](./images/14.png)
+
+Elasticsearch ELK Setup with Helm using ECK
+
+```bash
+helm repo add elastic https://helm.elastic.co
+helm repo update
