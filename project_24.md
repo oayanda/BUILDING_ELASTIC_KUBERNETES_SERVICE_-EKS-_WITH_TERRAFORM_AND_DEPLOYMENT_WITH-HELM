@@ -103,5 +103,55 @@ kubectl exec --namespace default -it svc/jenkins-server -c jenkins -- /bin/cat /
 #  Get the Jenkins URL 
 kubectl --namespace default port-forward svc/jenkins-server 8080:8080
 ```
+
 ![helm install](./images/10.png)
 ![helm install](./images/9.png)
+
+Install Artifactory
+
+```bash
+# Add JFrog Helm repository
+helm repo add jfrog https://charts.jfrog.io
+helm repo update
+
+# To install the chart with the release name artifactory
+helm upgrade --install artifactory --namespace default jfrog/artifactory
+
+```
+
+![helm install](./images/11.png)
+
+Prometheus Setup with Helm
+
+```bash
+# Get Repository Info
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+
+helm repo update
+
+# Install Chart
+helm install prome prometheus-community/prometheus
+```
+
+> Create NodePort Service object and expose port 9090
+
+![helm install](./images/12.png)
+
+View in the browser
+![helm install](./images/13.png)
+
+Grafana Setup with Helm
+
+```bash
+# Get Repo Info
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+
+# Installing the Chart
+helm install mygrafana grafana/grafana
+
+```
+![helm install](./images/15.png)
+
+View in the browser
+![helm install](./images/14.png)
