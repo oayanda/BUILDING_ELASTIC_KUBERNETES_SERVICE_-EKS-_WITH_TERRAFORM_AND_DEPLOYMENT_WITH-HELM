@@ -1,6 +1,6 @@
 # BUILDING ELASTIC KUBERNETES SERVICE (EKS) WITH TERRAFORM AND DEPLOYMENT WITH HELM
 
-View Terraform EKS cluster configuration files here
+[View Terraform EKS cluster configuration files here](https://github.com/oayanda/Terraform_EKS_Cluster)
 
 Install Helm on a Ubuntu OS
 
